@@ -9,4 +9,14 @@ class Subcategory extends Model
 {
     use HasFactory;
     protected $guarded = ["id","created_at","updated_at"];
+
+    //Relacion uno a muchos inversa - muchos a uno
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
+
+    //Relacion uno a muchos
+    public function products(){
+        return $this->hasMany(Product::class);
+    }
 }
